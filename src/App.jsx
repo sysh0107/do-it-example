@@ -4,6 +4,9 @@ import TodaysPlan from "./03/TodaysPlan";
 import ChildComponent from "./03/ChildComponent";
 import BooleanComponent from "./03/BooleanComponent";
 import ChildComponent2 from "./03/ChildComponent2";
+import DefaultPropsComponent from "./03/DefaultPropsComponent";
+import ChildProperty from "./03/ChildProperty";
+
 // js, jsx 확장자 생략해도 웹팩 코드검색 확장자 기능함
 class App extends React.Component {
   render() {
@@ -42,7 +45,20 @@ class App extends React.Component {
       //   </div>
       // </div>
 
-      <ChildComponent2 objValue={{ age: 20 }} requiredStringValue="문자" />
+      // <ChildComponent2 objValue={{ age: 20 }} requiredStringValue="문자" />
+
+      // 기본 프로퍼티
+      // <div>
+      //   <DefaultPropsComponent />
+      // </div>
+      // 자식 프로퍼티
+      <div>
+        <ChildProperty>
+          <div>
+            <span>자식 노드</span>
+          </div>
+        </ChildProperty>
+      </div>
     );
   }
 }
