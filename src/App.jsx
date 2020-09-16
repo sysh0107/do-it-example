@@ -6,7 +6,9 @@ import BooleanComponent from "./03/BooleanComponent";
 import ChildComponent2 from "./03/ChildComponent2";
 import DefaultPropsComponent from "./03/DefaultPropsComponent";
 import ChildProperty from "./03/ChildProperty";
-
+import StateExample from "./03/StateExample";
+import ForceUpdateExample from "./03/ForceUpdateExample";
+import Counter from "./03/Counter";
 // js, jsx 확장자 생략해도 웹팩 코드검색 확장자 기능함
 class App extends React.Component {
   render() {
@@ -52,13 +54,27 @@ class App extends React.Component {
       //   <DefaultPropsComponent />
       // </div>
       // 자식 프로퍼티
+      // <div>
+      //   <ChildProperty>
+      //     <div>
+      //       {/* <span>자식 노드</span> */}
+      //       <button>버튼</button>
+      //     </div>
+      //   </ChildProperty>
+      // </div>
+
+      // state 상태 관리
+      // <div>
+      //   <StateExample />
+      // </div>
+
+      // 사용 자제-성능) 클래스 인스턴스 변수와 forceUpdate()로 state 관리
+      // <div>
+      //   <ForceUpdateExample />
+      // </div>
+      // 3분 코딩
       <div>
-        <ChildProperty>
-          <div>
-            {/* <span>자식 노드</span> */}
-            <button>버튼</button>
-          </div>
-        </ChildProperty>
+        <Counter />
       </div>
     );
   }
