@@ -9,8 +9,18 @@ import ChildProperty from "./03/ChildProperty";
 import StateExample from "./03/StateExample";
 import ForceUpdateExample from "./03/ForceUpdateExample";
 import Counter from "./03/Counter";
+import NewCounter from "./03/NewCounter";
 // js, jsx 확장자 생략해도 웹팩 코드검색 확장자 기능함
 class App extends React.Component {
+  // 3-5 생명 주기
+  constructor(props) {
+    super(props);
+    this.state = { count: 10 };
+    this.resetCount = this.resetCount.bind(this);
+  }
+  resetCount() {
+    this.setState(({ count }) => ({ count: count + 10 }));
+  }
   render() {
     // const array = [1, 2, 3];
     // const obj = { name: "제목", age: 30 };
@@ -73,8 +83,22 @@ class App extends React.Component {
       //   <ForceUpdateExample />
       // </div>
       // 3분 코딩
+      // <div>
+      //   <Counter />
+      // </div>
+
+      // 3-5 생명주기
       <div>
-        <Counter />
+        <div>
+          {/* counter는 처음 생성될 때만 프로퍼티값으로 state를 설정하므로 갱신과정에서 state 변경 x */}
+          <Counter count={this.state.count} />
+        </div>
+        <div>
+          <NewCounter count={this.state.count} />
+        </div>
+        <button onClick={this.resetCount}>
+          {this.state.count + 10}으로 초기화
+        </button>
       </div>
     );
   }
