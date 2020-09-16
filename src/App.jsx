@@ -55,7 +55,8 @@ class App extends React.Component {
       <div>
         <ChildProperty>
           <div>
-            <span>자식 노드</span>
+            {/* <span>자식 노드</span> */}
+            <button>버튼</button>
           </div>
         </ChildProperty>
       </div>
