@@ -137,9 +137,7 @@ class App extends React.Component {
       //   <MyPureComponent value={this.listValue} />
       //   <button onClick={this.handleClick}>버튼</button>
       // </div>
-      <div>
-        <ListExample />
-      </div>
+      <Counter count={this.state.count} onAdd={this.increaseCount} />
     );
   }
 }
