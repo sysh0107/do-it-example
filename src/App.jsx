@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, PureComponent } from "react";
 import PropsComponent from "./03/PropsComponent";
 import TodaysPlan from "./03/TodaysPlan";
 import ChildComponent from "./03/ChildComponent";
@@ -10,17 +10,48 @@ import StateExample from "./03/StateExample";
 import ForceUpdateExample from "./03/ForceUpdateExample";
 import Counter from "./03/Counter";
 import NewCounter from "./03/NewCounter";
+import ListExample from "./03/ListExample";
+
 // js, jsx 확장자 생략해도 웹팩 코드검색 확장자 기능함
+
+// 3-6 purecomponent 3분 코딩
+// class MyComponent extends React.Component {
+//   componentDidUpdate() {
+//     console.log("MyComponent 새로 고침");
+//   }
+// }
+// class MyPureComponent extends React.PureComponent {
+//   componentDidUpdate() {
+//     console.log("MyPureComponent 새로 고침");
+//   }
+// }
 class App extends React.Component {
+  // 3-6 purecomponent
+  // constructor(props) {
+  //   super(props);
+  //   this.listValue = [{ name: "Park" }, { name: "Lee" }];
+  //   this.state = { version: 0 };
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
+  // handleClick() {
+  //   setTimeout(() => {
+  //     this.listValue[0].name = "Justin";
+  //     this.setState({ version: 1 });
+  //   }, 100);
+  //   setTimeout(() => {
+  //     this.listValue = [{ name: "Justine" }, { name: "Lee" }];
+  //     this.setState({ version: 2 });
+  //   }, 200);
+  // }
   // 3-5 생명 주기
-  constructor(props) {
-    super(props);
-    this.state = { count: 10 };
-    this.resetCount = this.resetCount.bind(this);
-  }
-  resetCount() {
-    this.setState(({ count }) => ({ count: count + 10 }));
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { count: 10 };
+  //   this.resetCount = this.resetCount.bind(this);
+  // }
+  // resetCount() {
+  //   this.setState(({ count }) => ({ count: count + 10 }));
+  // }
   render() {
     // const array = [1, 2, 3];
     // const obj = { name: "제목", age: 30 };
@@ -88,17 +119,26 @@ class App extends React.Component {
       // </div>
 
       // 3-5 생명주기
+      // <div>
+      //   <div>
+      //     {/* counter는 처음 생성될 때만 프로퍼티값으로 state를 설정하므로 갱신과정에서 state 변경 x */}
+      //     <Counter count={this.state.count} />
+      //   </div>
+      //   <div>
+      //     <NewCounter count={this.state.count} />
+      //   </div>
+      //   <button onClick={this.resetCount}>
+      //     {this.state.count + 10}으로 초기화
+      //   </button>
+      // </div>
+      // 3-6 purecomponent 3분코딩
+      // <div className="body">
+      //   <MyComponent value={this.listValue} />
+      //   <MyPureComponent value={this.listValue} />
+      //   <button onClick={this.handleClick}>버튼</button>
+      // </div>
       <div>
-        <div>
-          {/* counter는 처음 생성될 때만 프로퍼티값으로 state를 설정하므로 갱신과정에서 state 변경 x */}
-          <Counter count={this.state.count} />
-        </div>
-        <div>
-          <NewCounter count={this.state.count} />
-        </div>
-        <button onClick={this.resetCount}>
-          {this.state.count + 10}으로 초기화
-        </button>
+        <ListExample />
       </div>
     );
   }
